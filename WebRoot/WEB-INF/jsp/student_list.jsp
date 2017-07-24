@@ -10,6 +10,22 @@
     charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js" type="text/javascript"
     charset="utf-8"></script>
+<script type="text/javascript">
+	function delStudent(id) {
+		var isDel = confirm("您确认要删除吗？");
+		if (isDel) {
+			location.href = "${pageContext.request.contextPath}/student/delete.action?id="+id;
+		}
+	}
+	
+	function deleteAll(){
+		var isDel = confirm("您确认要删除吗？");
+		if (isDel) {
+			$("#mainForm").attr("action","${pageContext.request.contextPath}/student?method=deleteAll");
+			$("#mainForm").submit();
+		}
+	}
+</script>
 </head>
 <body>
     <div class="container" style="width:70%">
@@ -43,7 +59,6 @@
                   <td>密码</td>
                   <td>年龄</td>
                   <td>性别</td>
-                  <td>出生日期</td>
                   <td>删除</td>
                   <td>修改</td>
                </tr>
@@ -57,19 +72,20 @@
                       <td>${student.getPassword()}</td>
                       <td>${student.getAge()}</td>
                       <td>${student.getGender()}</td>
-                      <td>${student.getBirthday()}</td>
                       <td><a href="javascript:void(0);"
                           onclick="delStudent('${student.getId()}')">删除</a>
                       </td>
                       <td><a
-                          href="${pageContext.request.contextPath}/student?method=toUpdate&id=${student.getId()}">修改</a>
+                          href="${pageContext.request.contextPath}/student/update.action?id=${student.getId()}">修改</a>
                       </td>
                   </tr>
                </c:forEach>
            </table>
-       </form>
-       <a class="btn btn-primary"
-			href="${pageContext.request.contextPath}/add_student.jsp">添加学生</a> 
+        </form>
+		<a class="btn btn-primary"
+			href="${pageContext.request.contextPath}/student_add.jsp">添加学生</a>
+		<a class="btn btn-primary"
+			href="${pageContext.request.contextPath}/student_find.jsp">查找学生</a> 
     </div>
 </body>
 </html>

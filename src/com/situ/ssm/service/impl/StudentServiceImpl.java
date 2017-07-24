@@ -25,7 +25,33 @@ public class StudentServiceImpl implements IStudentService{
 
 	@Override
 	public boolean add(Student student) {
-		return studentDao.add(student);
+		studentDao.add(student);
+		return true;
+		/*if (result > 0) {
+			return true;
+		}else {
+			return false;
+		}*/
+	}
+
+
+	@Override
+	public int delete(Integer id) {
+		return studentDao.delete(id);
+	}
+
+
+	@Override
+	public List<Student> findByName(String name) {
+		List<Student> list = studentDao.findByName(name);
+		return list;
+	}
+
+
+	@Override
+	public boolean update(Student student) {
+		studentDao.update(student);
+		return true;
 	}
 
 	

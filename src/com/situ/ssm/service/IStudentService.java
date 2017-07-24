@@ -8,5 +8,11 @@ public interface IStudentService {
 
 	public List<Student> findAll();
 	
-	public boolean add(Student student);
+	public abstract boolean add(Student student);
+	
+	public abstract int delete(Integer id);
+	
+	public abstract List<Student> findByName(String name);
+	
+	public abstract boolean update(Student student);
 }

@@ -13,31 +13,33 @@ public class Student implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
-	private String password;
 	private int age;
 	private String gender;
-	private Date birthday;
-	
-	
+	private String password;
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Student(Integer id, String name, String password, int age,
-			String gender, Date birthday) {
+	public Student(Integer id, String name, int age, String gender,
+			String password) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.password = password;
 		this.age = age;
 		this.gender = gender;
-		this.birthday = birthday;
+		this.password = password;
+	}
+	public Student(String name, int age, String gender, String password) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.password = password;
 	}
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", password="
-				+ password + ", age=" + age + ", gender=" + gender
-				+ ", birthday=" + birthday + "]";
+		return "Student [id=" + id + ", name=" + name + ", age=" + age
+				+ ", gender=" + gender + ", password=" + password + "]";
 	}
 	public Integer getId() {
 		return id;
@@ -51,12 +53,6 @@ public class Student implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public int getAge() {
 		return age;
 	}
@@ -69,13 +65,10 @@ public class Student implements Serializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Date getBirthday() {
-		return birthday;
+	public String getPassword() {
+		return password;
 	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
-	
-
 }

@@ -17,12 +17,21 @@ public interface StudentDao {
 	 * @param student
 	 * @return
 	 */
-	public boolean add(Student student);
+	public void add(Student student);
 	
 	/**
 	 * 删除学生
 	 * @param id
 	 * @return
 	 */
-	public boolean delete(int id);
+	public int delete(Integer id);
+	/**
+	 * 根据姓名查找学生
+	 * @param name
+	 * @return
+	 */
+	public List<Student> findByName(String name);
+	
+	
+	public void update(Student student);
 }
